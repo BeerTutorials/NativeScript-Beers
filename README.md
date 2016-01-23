@@ -36,7 +36,7 @@ tns run android --emulator
 >
 > If you find issues while initializing the app, read carefully [these instauctions](http://docs.nativescript.org/setup/ns-cli-setup/)
 
-![Initial app](../img/2015-12-01-initial-app.png)
+![Initial app](http://www.beer-tutorials.org/img/2015-12-01-initial-app.png)
 
 
 The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to a running NativeScript app. If you set the command's `--watch` flag (`tns livesync ios --emulator --watch` or `tns livesync android --emulator --watch`), the NativeScript CLI will watch your app for changes, and apply those changes automatically after you save files. Be warned, however, that the `livesync` command currently does not show `console.log()` output or stack traces. So during debugging you may want to switch back to `tns run` or use `adb logcat` in parallel to get logs directly from the android emulator.
@@ -66,9 +66,15 @@ The `tns livesync` command instantly transfers XML, CSS, and JavaScript files to
             └── ios    
 
 
-Inside  the project folder there are 3 sub-folders: `app`, `lib` and `platforms`. The application source code resides in the `app` folder. Application code is written using JavaScript and the user interface designed using XML.
+Inside  the project folder there are 3 sub-folders: `app`, `node_modules` and `platforms` :
 
-Inside the `app` folder is a file called `main-page.xml` which has the default user interface code. In `main-view-model.js` is the default model code and` main-page.js` defines the application logic. Finally `app.js` contains the code to start the application with the defined modules.
+* `app`: This folder contains all the development resources you need to build your app. You'll be spending most of your time editing the files in here.
+* `node_modules`: This folder contains your app's npm module dependencies. All new NativeScript projects start with a single dependency on tns-core-modules.
+* `node_modules/tns-core-modules`: This folder contains your app's NativeScript modules, which are a series of NativeScript-provided JavaScript modules you'll use to build your app. Each module contains the platform-specific code needed to implement some feature—the camera, http calls, the file system, and so forth—exposed through a platform-agnostic API (e.g. camera.takePicture()). We'll look at some examples momentarily.
+* `package.json`: This file contains your app's configuration details, such as your app id, the version of NativeScript you're using, and also which npm modules your app uses. We'll take a closer look at how to use this file when we talk about using npm modules in chapter 5.
+* `platform`s: This folder contains the platform-specific code NativeScript needs to build native iOS and Android apps. For example in the android folder you'll find things like your project's AndroidManifest.xml and .apk executable files. Similarly, the ios folder contains the Groceries' Xcode project and .ipa executables. Note, users on Windows machines will not have an ios folder.
+
+ Application code is written using JavaScript and the user interface designed using XML. Inside the `app` folder is a file called `main-page.xml` which has the default user interface code. In `main-view-model.js` is the default model code and` main-page.js` defines the application logic. Finally `app.js` contains the code to start the application with the defined modules.
 
 
 ## Designing the app
@@ -97,7 +103,7 @@ Define the stack layout with a vertical orientation. Add a button inside the sta
 
 Save changes and run the app. It should look something like the below.
 
-![After adding button](../img/2015-12-01-get_beer_list_btn.png)
+![After adding button](http://www.beer-tutorials.org/img/2015-12-01-get_beer_list_btn.png)
 
 
 ## Fetching data from Beer catalog
@@ -268,7 +274,7 @@ And then we add the image to the `ListView.itemTemplate`:
 </ListView.itemTemplate>
 ```
 
-![After adding pics](../img/2015-12-01-beers-with-pics.png)
+![After adding pics](http://www.beer-tutorials.org/img/2015-12-01-beers-with-pics.png)
 
 
 ## Let's forget the Button
@@ -303,4 +309,4 @@ To have access to the `ActionBar` with the application title, you only need to e
 ```
 
 
-![After adding pics](../img/2015-12-01-beers-with-pics-no-button.png)
+![After adding pics](http://www.beer-tutorials.org/img/2015-12-01-beers-with-pics-no-button.png)
