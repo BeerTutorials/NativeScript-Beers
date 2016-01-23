@@ -282,9 +282,13 @@ application.on(application.launchEvent, function (args) {
    var mainPage = require("./main-page");
    mainPage.beers();
 })
+
+application.start();
 ```
 
-Now you can delete the `Buttom` from `main-page.xml`.
+`application.start()` must be the **last** instruction of the `app.js` file, any instruction after it would be ignored in some platforms.
+
+Now you can delete the `Button` from `main-page.xml`.
 
 
 ## And how about the ActionBar title?
